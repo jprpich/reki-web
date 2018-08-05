@@ -19,7 +19,12 @@ class Product extends Model
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
-    protected $fillable = [];
+        protected $fillable = [
+            'id_source',
+            'tipo',
+            'cantidad',
+            'disponibilidad'
+        ];
     // protected $hidden = [];
     // protected $dates = [];
 

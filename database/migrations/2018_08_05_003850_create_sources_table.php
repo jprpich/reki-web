@@ -18,7 +18,7 @@ class CreateSourcesTable extends Migration
             $table->string('nombre');
             $table->string('direccion');
             $table->timestamps();
-            $table->softDeletes();
+            //$table->softDeletes();
         });
     }
 

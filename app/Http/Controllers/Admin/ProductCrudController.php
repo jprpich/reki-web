@@ -48,6 +48,40 @@ class ProductCrudController extends CrudController
         // $this->crud->removeField('name', 'update/create/both');
         // $this->crud->removeFields($array_of_names, 'update/create/both');
 
+        /*$this->crud->addField([
+            'label' => 'Source',
+            'type' => 'select',
+            'name' => 'source_id',
+            'entity' => 'source', // the method that defines the relationship in your Model
+            'attribute' => 'country_iso_a2', // foreign key attribute that is shown to user
+            'model' => "App\Models\Country", // foreign key model
+        ]);*/
+
+        $this->crud->addField([ // select_from_array
+            'name' => 'tipo',
+            'label' => "Tipo Material",
+            'type' => 'select_from_array',
+            'options' => [
+                'plastico' => 'Plastico',
+                'papel' => 'Papel',
+                'vidrio' => 'Vidrio',
+            ],
+            'allows_null' => false,
+            'allows_multiple' => false,
+        ]);
+
+        $this->crud->addField([ // select_from_array
+            'name' => 'disponibilidad',
+            'label' => "Disponibilidad",
+            'type' => 'select_from_array',
+            'options' => [
+                '1' => 'Si',
+                '0' => 'No',
+            ],
+            'allows_null' => false,
+            'allows_multiple' => false,
+        ]);
+
         // add asterisk for fields that are required in ProductRequest
         $this->crud->setRequiredFields(StoreRequest::class, 'create');
         $this->crud->setRequiredFields(UpdateRequest::class, 'edit');
