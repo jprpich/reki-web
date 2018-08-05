@@ -5,9 +5,14 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+use Wildside\Userstamps\Userstamps;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 class User extends Authenticatable
 {
     use Notifiable;
+    use SoftDeletes;
+    use Userstamps;
 
     /**
      * The attributes that are mass assignable.
